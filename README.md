@@ -12,7 +12,7 @@ such as:
 ## How to use
 
 To send a message, you just need to enter your username when connecting, and then enter the string you want to send. You can receive the message + the user that has sent it.
-To compile the files, open a shell the repository and type "make"
+To compile the files, open a shell the repository and type `make`
 
 ## Requirements
 
