@@ -1,9 +1,7 @@
 /*
  * The maximum message size 
- * is 2048 bytes. It contains
- * the username AND the message
- * to deliver.
- */
+ * is 2048 bytes.
+ */ 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -90,10 +88,15 @@ int main() {
     int should_stop = 0;
     char *username;
 
-    username = (char *)malloc(2048);
+    username = (char *)malloc(512);
 
     printf("Enter username to use [max char. 2048]: ");
     scanf("%s", username);
+
+    if (sizeof(username) < 512) {
+        printf("Username too big, exiting.\n");
+        exit(EXIT_FAILURE);
+    }
 
     int fd = socket(AF_INET, SOCK_STREAM, 0);
 
