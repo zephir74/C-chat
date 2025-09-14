@@ -11,8 +11,10 @@ such as:
 
 ## How to use
 
-To send a message, you just need to enter your username when connecting, and then enter the string you want to send. You can receive the message + the user that has sent it.
+To send a message, you just need to enter your username when connecting, and then enter the string you want to send.
+You can receive the message + the user that has sent it.
 To compile the files, open a shell the repository and type `make all`.
+Then, type `./server` for the server or `./client` for the client.
 
 ## Requirements
 
