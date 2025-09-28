@@ -54,6 +54,14 @@ int client_accept(int server_fd, struct sockaddr_in *address, struct client *id,
     return -EBUSY;
 }
 
+int client_handle_command_user(char *msg, int msg_size, struct client *client) {
+	int ret = 0;
+
+	strncpy(msg, client->username, msg_size);
+	
+	return ret;
+}
+
 int client_handle_command_dir(char *msg, int msg_size) {
 	int ret = 0;
 
@@ -121,7 +129,9 @@ int client_handle_command(struct client *client, char *buffer) {
 	char msg_command[2048];
 	int msg_command_size = sizeof(msg_command);
 	
-	if (strcmp(buffer, "/dir") == 0) {
+	if (strcmp(buffer, "/user") == 0) {
+		client_handle_command_user(msg_command, msg_command_size, client);
+	} else if (strcmp(buffer, "/dir") == 0) {
 		client_handle_command_dir(msg_command, msg_command_size);
 	} else if (strcmp(buffer, "/ip") == 0) {
 		client_handle_command_ip(msg_command, msg_command_size);

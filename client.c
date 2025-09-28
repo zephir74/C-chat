@@ -16,6 +16,7 @@ int help_menu() {
     printf("*\n");
     printf("Available commands :\n");
     printf("/help : display this menu\n");
+    printf("/user : display your username\n");
     printf("/dir : list the current directory used by the server\n");
     printf("/ip : get the server's public IP address\n");
     printf("/reboot : reboot the server\n");
@@ -93,8 +94,8 @@ int main() {
     printf("Enter username to use [max char. 2048]: ");
     scanf("%s", username);
 
-    if (sizeof(username) < 512) {
-        printf("Username too big, exiting.\n");
+    if (sizeof(username) > 512) {
+        printf("Username too long, exiting.\n");
         exit(EXIT_FAILURE);
     }
 
